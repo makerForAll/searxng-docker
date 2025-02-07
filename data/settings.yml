@@ -1,0 +1,41 @@
+use_default_settings: true
+
+general:
+  debug: true
+  instance_name: "searxng"
+
+search:
+  safe_search: 0
+  formats:
+    - json
+    - html
+  default_format: json
+  autocomplete: ''
+  doi_resolvers:
+    doi.org:
+      url: https://doi.org/
+  default_doi_resolver: 'doi.org'
+
+server:
+  port: 8080
+  bind_address: "0.0.0.0"
+  secret_key: "a8KJRqg7RwJEHxjKpLyX9mN3vF2tU5Zc"  # 使用相同的 secret key
+  base_url: "http://localhost:8080/"
+  image_proxy: false
+  http_protocol_version: "1.0"
+  method: "GET"
+  cors_enabled: true
+  limiter: false
+
+ui:
+  default_theme: simple
+  default_locale: "en"
+
+redis:
+  url: false
+
+engines:
+  - name: duckduckgo
+    engine: duckduckgo
+    shortcut: ddg
+    disabled: false

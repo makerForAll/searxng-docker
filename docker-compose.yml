@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  searxng:
+    container_name: searxng
+    image: searxng/searxng:latest
+    environment:
+      - INSTANCE_NAME=searxng
+      - SEARXNG_SECRET_KEY=a8KJRqg7RwJEHxjKpLyX9mN3vF2tU5Zc
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/etc/searxng
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+    restart: unless-stopped
+
+volumes:
+  redis-data:
